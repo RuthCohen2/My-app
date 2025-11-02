@@ -1,22 +1,19 @@
 <app-header></app-header>
 <main>
-<ul id="users">
-<li>
-  <app-user
-    [name] = "users[0].name"
-     [avatar] = "users[0].avatar" 
-     [id] = "users[0].id"
-      (userselected) = "onUserSelect($event)" 
-   >
-  </app-user>
+  <ul id="users">
+    <li>
+      <app-user [name]="users[0].name" [avatar]="users[0].avatar" [id]="users[0].id"
+        (userselected)="onUserSelect($event)">
+      </app-user>
 
-</li>
-<li>
-    <app-user
-    [name] = "users[1].name"
-     [avatar] = "users[1].avatar"
-      [id] = "users[1].id">
-  </app-user>
-</li>
-</ul>
+    </li>
+    <li>
+      <app-user [name]="users[1].name" [avatar]="users[1].avatar" [id]="users[1].id"
+        (userselected)="onUserSelect($event)">
+
+      </app-user>
+    </li>
+  </ul>
+  <p *ngIf="selectedUser">נבחר: {{ selectedUser.name }}</p>
+
 </main>
