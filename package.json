@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "first",
-=======
   "name": "my-app",
->>>>>>> d8ea6e0a5ca496ce2378c308706753b448ca3420
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

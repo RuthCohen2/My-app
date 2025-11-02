@@ -3,11 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-<<<<<<< HEAD
-    "first": {
-=======
     "my-app": {
->>>>>>> d8ea6e0a5ca496ce2378c308706753b448ca3420
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -23,11 +19,8 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-<<<<<<< HEAD
               "src/favicon.ico",
               "src/assets",
-=======
->>>>>>> d8ea6e0a5ca496ce2378c308706753b448ca3420
               {
                 "glob": "**/*",
                 "input": "public"
@@ -65,17 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-<<<<<<< HEAD
-              "buildTarget": "first:build:production"
-            },
-            "development": {
-              "buildTarget": "first:build:development"
-=======
               "buildTarget": "my-app:build:production"
             },
             "development": {
               "buildTarget": "my-app:build:development"
->>>>>>> d8ea6e0a5ca496ce2378c308706753b448ca3420
             }
           },
           "defaultConfiguration": "development"
@@ -104,11 +90,5 @@
         }
       }
     }
-<<<<<<< HEAD
-  },
-  "cli": {
-    "analytics": false
-=======
->>>>>>> d8ea6e0a5ca496ce2378c308706753b448ca3420
   }
 }
