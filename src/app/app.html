@@ -1,20 +1,24 @@
 <app-header></app-header>
 <main>
   <ul id="users">
-    <li>
-      <app-user [name]="users[0].name" [avatar]="users[0].avatar" [id]="users[0].id"
+      @for (user of users; track user.id){
+        <li>
+      <app-user [name]="user.name" [avatar]="user.avatar" [id]="user.id" [isSelected]="user.id === selectedUser?.id"
         (userselected)="onUserSelect($event)">
       </app-user>
-
     </li>
-    <li>
-      <app-user [name]="users[1].name" [avatar]="users[1].avatar" [id]="users[1].id"
-        (userselected)="onUserSelect($event)">
-
-      </app-user>
-    </li>
+    }
   </ul>
-  <p *ngIf="selectedUser">נבחר: {{ selectedUser.name }}</p>
-  <h1>הייי</h1>
+  @if(selectedUser){
+    <app-tasks> 
+      [name]="selectedUser.name"
+    </app-tasks>
+  }
+  @else{
+    <p>Please select a user to view his task</p>
+
+  }
+  
+
 
 </main>

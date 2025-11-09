@@ -11,6 +11,7 @@ import {Output} from '@angular/core';
 })
 export class User {
 //  selectedUser=USERS[0];
+@Input({required:true}) isSelected!: boolean;
 @Input() name!: string;
 @Input() avatar!: string;
 @Input({required: true}) id!: string;
