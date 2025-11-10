@@ -2,6 +2,10 @@ import { Component, EventEmitter, output } from '@angular/core';
 import {USERS} from '../fake_users'
 import {Input} from '@angular/core';
 import {Output} from '@angular/core';
+import {UserObj} from './user.model';
+
+
+
 
 @Component({
   selector: 'app-user',
@@ -12,16 +16,15 @@ import {Output} from '@angular/core';
 export class User {
 //  selectedUser=USERS[0];
 @Input({required:true}) isSelected!: boolean;
-@Input() name!: string;
-@Input() avatar!: string;
-@Input({required: true}) id!: string;
+@Input({required: true})userObj!: UserObj;
 @Output() userselected = new EventEmitter<string>();
 
 onselect(){
-  this.userselected.emit(this.id)
+  this.userselected.emit(this.userObj.id)
 }
 
+
  get imagePath(){
-  return 'assets/users/' +this.avatar;
+  return 'assets/users/' +this.userObj.avatar;
  }
 }

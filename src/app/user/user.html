@@ -1,7 +1,7 @@
  <button [class.active]="isSelected"
  (click) = "onselect()">
 
-   <img [src] = "'assets/users' + avatar" [alt] = "name" width="50" height="50" >
-    <span>{{name}}</span>
+   <img [src] = "imagePath" [alt] = "userObj.name" width="50" height="50" >
+  {{userObj.name}}
     </button>
 
