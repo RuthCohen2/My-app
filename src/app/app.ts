@@ -5,12 +5,14 @@ import { User } from './user/user';
 import { USERS } from './fake_users';
 import { CommonModule } from '@angular/common'; // נדרש בשביל *ngIf
 import { Tasks } from './tasks/tasks';
+import { NewTask } from './tasks/new-task/new-task';
+
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, CommonModule,Tasks],
+  imports: [RouterOutlet, Header, User, CommonModule,Tasks ,NewTask ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

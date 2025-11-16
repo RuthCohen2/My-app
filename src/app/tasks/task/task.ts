@@ -5,7 +5,7 @@ import { task} from './task.model';
 
 @Component({
   selector: 'app-task',
-    standalone: true, 
+  standalone: true, 
   imports: [],
   templateUrl: './task.html',
   styleUrl: './task.css'
