@@ -1,0 +1,10 @@
+<form [formGroup]="form"  class="contact-form">
+  <input type="text" formControlName="name" placeholder="Name">
+  <input type="email" formControlName="email" placeholder="Email">
+  <input type="subjecct" formControlName="subjecct" placeholder="Subjecct">
+  <textarea formControlName="message" placeholder="Message"></textarea>
+  <div class="buttons">
+    <button type="submit" class="send-btn">Send</button>
+    <button type="button" class="cancel-btn">Cancel</button>
+  </div>
+</form>

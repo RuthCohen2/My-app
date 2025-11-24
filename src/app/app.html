@@ -1,7 +1,11 @@
 <app-header></app-header>
 <main>
   <ul id="users">
-    <button>Contact Us</button>
+<button (click)="openContactDialog()">Contact Us</button>
+
+@if (showContact) {
+  <app-contact-form></app-contact-form>
+}
     @for (user of users; track user.id){
     <li>
       <app-user 
@@ -19,7 +23,4 @@
   <p>Please select a user to view his task</p>
 
   }
-
-
-
 </main>

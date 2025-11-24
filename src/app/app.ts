@@ -6,19 +6,23 @@ import { USERS } from './fake_users';
 import { CommonModule } from '@angular/common'; // נדרש בשביל *ngIf
 import { Tasks } from './tasks/tasks';
 import { NewTask } from './tasks/new-task/new-task';
+import { ContactForm } from './contact-form/contact-form';
+
 
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, CommonModule,Tasks ,NewTask ],
+  imports: [RouterOutlet, Header, User, CommonModule,Tasks ,NewTask,ContactForm ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
   users = USERS;
   selectedUser: any = null;
+  showContact: boolean = false;
+
 
 
   protected readonly title = signal('my-app');
@@ -28,4 +32,11 @@ export class App {
     this.selectedUser = choiceUser; // ✅ שמירת המשתמש שנבחר
     console.log(choiceUser);
   }
+  openContactDialog() {
+  this.showContact = true;
+}
+
+closeContactDialog() {
+  this.showContact = false;
+}
 }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormsModule , NgForm} from '@angular/forms';
-import { CommonModule } from '@angular/common'; // <-- כאן
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-new-task',
-    standalone: true,
+  standalone: true,
   imports: [FormsModule ,CommonModule],
   templateUrl: './new-task.html',
 styleUrls: ['./new-task.css']
