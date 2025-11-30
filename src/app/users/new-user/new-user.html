@@ -1,0 +1,78 @@
+<div class="backdrop"></div>
+<dialog open>
+  <h4>Add User</h4>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row" formGroupName="name">
+      <div>
+        <p>
+          <label for="firstName">First Name</label>
+          <input id="firstName" type="text" formControlName="firstName" />
+          @if (form.get('name.firstName')?.hasError('maxlength') 
+          && form.get('name.firstName')?.touched) {
+       <div class="error">מותר עד 18 תווים בלבד</div>
+     }
+
+        </p>
+      </div>
+
+      <div>
+        <p>
+          <label for="lastName">Last Name</label>
+          <input id="lastName" formControlName="lastName" type="text" />
+          @if (form.get('name.lastName')?.hasError('maxlength') 
+          && form.get('name.lastName')?.touched) {
+       <div class="error">מותר עד 18 תווים בלבד</div>
+     }
+        </p>
+      </div>
+    </div>
+
+    <p>
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email"/>
+      @if (email.touched && email.hasError('email'))
+      {
+        <div class="error">כתובת אימייל לא תקינה</div>
+      }
+    </p>
+    
+    <div class="row" formGroupName="password">
+        @if (form.get('password')?.errors?.['mismatch'])
+        {
+          <div class="error">הסיסמאות אינן תואמות</div>
+        }
+      <p>
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password" />
+        @if (form.get('password.password')?.hasError('minlength') 
+        && form.get('password.password')?.touched) {
+      <div class="error">הסיסמה חייבת להכיל לפחות 6 תווים</div>
+    }
+      </p>
+      <p>
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password"/>
+      </p>
+    </div>
+    
+    <div class="categories-section">
+      <label>Task Categories</label>
+      <div class="row" formArrayName="categories">
+        @for(cat of categories; track $index)
+        {
+            <div class="category-row">
+                <label>
+                  <input type="checkbox" [formControlName]="$index" />
+                  {{cat}}
+                </label>
+              </div>
+        }
+      </div>
+    </div>
+    <p class="actions">
+      <button type="button">Cancel</button>
+      <button type="submit" [disabled] = "form.invalid">Create</button>
+    </p>
+  </form>
+</dialog>

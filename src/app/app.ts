@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common'; // נדרש בשביל *ngIf
 import { Tasks } from './tasks/tasks';
 import { NewTask } from './tasks/new-task/new-task';
 import { ContactForm } from './contact-form/contact-form';
+import { NewUser } from './users/new-user/new-user';
 
 
 
@@ -14,7 +15,7 @@ import { ContactForm } from './contact-form/contact-form';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, CommonModule,Tasks ,NewTask,ContactForm ],
+  imports: [RouterOutlet, Header, User, CommonModule,Tasks ,NewTask,ContactForm,NewUser ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -22,6 +23,8 @@ export class App {
   users = USERS;
   selectedUser: any = null;
   showContact: boolean = false;
+  showAddUser: boolean = false;
+
 
 
 
@@ -39,4 +42,12 @@ export class App {
 closeContactDialog() {
   this.showContact = false;
 }
+openNewUser(){
+ this.showAddUser = true;
 }
+
+closeNewUser() {
+  this.showContact = false;
+}
+}
+

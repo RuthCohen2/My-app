@@ -2,9 +2,15 @@
 <main>
   <ul id="users">
 <button (click)="openContactDialog()">Contact Us</button>
+<div class="actions">
+  <button (click)="openNewUser()">Add User</button>
+</div>
 
 @if (showContact) {
-  <app-contact-form></app-contact-form>
+  <app-contact-form (addUser)="onAddUser($event)"></app-contact-form>
+}
+@if (showAddUser) {
+  <app-new-user></app-new-user>
 }
     @for (user of users; track user.id){
     <li>
