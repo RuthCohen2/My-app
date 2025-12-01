@@ -7,10 +7,10 @@
 </div>
 
 @if (showContact) {
-  <app-contact-form (addUser)="onAddUser($event)"></app-contact-form>
+  <app-contact-form></app-contact-form>
 }
 @if (showAddUser) {
-  <app-new-user></app-new-user>
+<app-new-user (newuser)="onAddUser($event)"></app-new-user>
 }
     @for (user of users; track user.id){
     <li>

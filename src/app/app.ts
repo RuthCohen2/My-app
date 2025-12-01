@@ -15,7 +15,7 @@ import { NewUser } from './users/new-user/new-user';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, CommonModule,Tasks ,NewTask,ContactForm,NewUser ],
+  imports: [RouterOutlet, Header, User, CommonModule, Tasks, NewTask, ContactForm, NewUser],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -25,7 +25,19 @@ export class App {
   showContact: boolean = false;
   showAddUser: boolean = false;
 
-
+  onAddUser(formValue: any) {
+    console.log("aaaaaaaaaaaa")
+    const id = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+const fullName = `${formValue.name.firstName} ${formValue.name.lastName}`.trim();
+    const user: any = {
+      id,
+      name: fullName,
+      avatar: ''
+    };
+    console.log(user)
+    this.users = [...this.users, user]
+    console.log(this.users)
+  }
 
 
   protected readonly title = signal('my-app');
@@ -36,18 +48,18 @@ export class App {
     console.log(choiceUser);
   }
   openContactDialog() {
-  this.showContact = true;
-}
+    this.showContact = true;
+  }
 
-closeContactDialog() {
-  this.showContact = false;
-}
-openNewUser(){
- this.showAddUser = true;
-}
+  closeContactDialog() {
+    this.showContact = false;
+  }
+  openNewUser() {
+    this.showAddUser = true;
+  }
 
-closeNewUser() {
-  this.showContact = false;
-}
+  closeNewUser() {
+    this.showContact = false;
+  }
 }
 

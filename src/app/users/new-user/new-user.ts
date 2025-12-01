@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output , EventEmitter} from '@angular/core';
 import { ReactiveFormsModule ,FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 import { AbstractControl } from '../../../../node_modules/@angular/forms/index';
 
@@ -10,7 +10,7 @@ import { AbstractControl } from '../../../../node_modules/@angular/forms/index';
   styleUrl: './new-user.css'
 })
 export class NewUser {
-
+ @Output() newuser = new EventEmitter<any>();
   categories=['work', 'perosnal', 'kids']
 
   form = new FormGroup({
@@ -35,7 +35,10 @@ export class NewUser {
     return p === c ? null : { mismatch: true };
   }
   submit(){
-    console.log(this.form)
+     this.newuser.emit(this.form.value);
+
+
+    console.log("sssssssssssssssssssssssssss")
   }
 }
 
