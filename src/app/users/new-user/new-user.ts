@@ -11,6 +11,8 @@ import { AbstractControl } from '../../../../node_modules/@angular/forms/index';
 })
 export class NewUser {
  @Output() newuser = new EventEmitter<any>();
+ @Output() close = new EventEmitter<void>();
+
   categories=['work', 'perosnal', 'kids']
 
   form = new FormGroup({
@@ -36,10 +38,12 @@ export class NewUser {
   }
   submit(){
      this.newuser.emit(this.form.value);
-
-
     console.log("sssssssssssssssssssssssssss")
   }
+  closeNewUser() {
+  this.close.emit();
+  console.log("close");
+}
 }
 
 

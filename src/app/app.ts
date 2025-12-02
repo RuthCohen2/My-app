@@ -36,6 +36,7 @@ const fullName = `${formValue.name.firstName} ${formValue.name.lastName}`.trim()
     };
     console.log(user)
     this.users = [...this.users, user]
+    this.showAddUser = false;
     console.log(this.users)
   }
 
@@ -58,8 +59,8 @@ const fullName = `${formValue.name.firstName} ${formValue.name.lastName}`.trim()
     this.showAddUser = true;
   }
 
-  closeNewUser() {
-    this.showContact = false;
-  }
+closeNewUser() {
+  this.showAddUser = false; 
+}  
 }
 

@@ -10,8 +10,12 @@
   <app-contact-form></app-contact-form>
 }
 @if (showAddUser) {
-<app-new-user (newuser)="onAddUser($event)"></app-new-user>
+  <app-new-user 
+       (newuser)="onAddUser($event)" 
+       (close)="closeNewUser()">
+  </app-new-user>
 }
+
     @for (user of users; track user.id){
     <li>
       <app-user 
@@ -27,6 +31,5 @@
   }
   @else{
   <p>Please select a user to view his task</p>
-
   }
 </main>
